@@ -8,20 +8,24 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&family=Montserrat:wght@200;400;600&display=swap');
 
-        :root { --gold: #c5a059; --dark: #0a0a0a; --gray: #1a1a1a; --white: #ffffff; }
+        :root { --gold: #c5a059; --dark: #0a0a0a; --gray: #1a1a1a; --white: #ffffff; --whatsapp: #25d366; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Montserrat', sans-serif; background: var(--dark); color: var(--white); scroll-behavior: smooth; overflow-x: hidden; }
         h1, h2, .logo { font-family: 'Cormorant Garamond', serif; }
 
-        /* Header & Nav */
+        /* Navigation */
         nav { display: flex; justify-content: space-between; align-items: center; padding: 25px 5%; background: rgba(10,10,10,0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #333; }
         .logo { font-size: 28px; color: var(--gold); font-weight: 600; letter-spacing: 3px; text-transform: uppercase; }
         .nav-links a { color: var(--white); text-decoration: none; margin-left: 30px; font-size: 13px; letter-spacing: 1px; transition: 0.3s; text-transform: uppercase; }
         .nav-links a:hover { color: var(--gold); }
 
+        /* WhatsApp Floating Button */
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: var(--whatsapp); color: white; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 15px rgba(0,0,0,0.3); z-index: 9999; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; box-shadow: 0px 0px 20px var(--whatsapp); }
+
         /* Hero Section */
         .hero { height: 95vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=2000'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        .hero h1 { font-size: 5.5rem; color: var(--gold); margin-bottom: 20px; text-transform: capitalize; font-weight: 600; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero h1 { font-size: clamp(3rem, 8vw, 5.5rem); color: var(--gold); margin-bottom: 20px; text-transform: capitalize; font-weight: 600; }
         .hero p { font-size: 1.2rem; letter-spacing: 4px; margin-bottom: 30px; font-weight: 200; color: #ddd; }
         
         .btn-gold { padding: 18px 45px; background: transparent; border: 1px solid var(--gold); color: var(--gold); text-transform: uppercase; font-size: 12px; letter-spacing: 3px; cursor: pointer; transition: 0.5s; text-decoration: none; display: inline-block; }
@@ -38,6 +42,9 @@
         .item-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px; background: linear-gradient(transparent, rgba(10,10,10,0.95)); text-align: center; }
         .item-overlay h3 { font-size: 1.5rem; margin-bottom: 10px; font-weight: 300; font-family: 'Montserrat', sans-serif; }
         .price { color: var(--gold); font-weight: 600; margin-bottom: 15px; display: block; font-size: 1.1rem; }
+        
+        .order-btn { background: var(--whatsapp); color: white; border: none; padding: 10px 20px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: 0.3s; border-radius: 2px; text-decoration: none; display: inline-block; }
+        .order-btn:hover { background: #128c7e; }
 
         /* Info Section */
         .contact-info { background: var(--gray); display: flex; flex-wrap: wrap; justify-content: space-around; padding: 60px 5%; text-align: center; border-top: 1px solid #333; margin-top: 50px; }
@@ -49,6 +56,10 @@
     </style>
 </head>
 <body>
+
+    <a href="https://wa.me/12125550198" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <nav>
         <div class="logo">VELVET & STEM</div>
@@ -73,7 +84,7 @@
                 <div class="item-overlay">
                     <h3>Deep Romance Bouquet</h3>
                     <span class="price">$145.00</span>
-                    <button class="btn-gold" style="padding: 10px 20px; font-size: 10px; letter-spacing: 1px;">Pre-Order</button>
+                    <a href="https://wa.me/12125550198" class="order-btn"><i class="fab fa-whatsapp"></i> Order via WhatsApp</a>
                 </div>
             </div>
             <div class="item-card">
@@ -81,7 +92,7 @@
                 <div class="item-overlay">
                     <h3>Golden Blush Box</h3>
                     <span class="price">$120.00</span>
-                    <button class="btn-gold" style="padding: 10px 20px; font-size: 10px; letter-spacing: 1px;">Pre-Order</button>
+                    <a href="https://wa.me/12125550198" class="order-btn"><i class="fab fa-whatsapp"></i> Order via WhatsApp</a>
                 </div>
             </div>
             <div class="item-card">
@@ -89,7 +100,7 @@
                 <div class="item-overlay">
                     <h3>White Onyx Minimal</h3>
                     <span class="price">$95.00</span>
-                    <button class="btn-gold" style="padding: 10px 20px; font-size: 10px; letter-spacing: 1px;">Pre-Order</button>
+                    <a href="https://wa.me/12125550198" class="order-btn"><i class="fab fa-whatsapp"></i> Order via WhatsApp</a>
                 </div>
             </div>
         </div>
