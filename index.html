@@ -3,137 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velvet Vases | Luxury NYC Florist</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Velvet Vases | Premium Florist NYC</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <style>
-        :root {
-            --dusty-rose: #d4a373; /* Elegant Goldish-Rose */
-            --sage-green: #a8b5a2;
-            --cream: #fefae0;
-            --dark-grey: #333;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background-color: #fff; color: var(--dark-grey); line-height: 1.6; }
-        h1, h2 { font-family: 'Playfair Display', serif; }
-
+        :root { --rose: #d4a373; --sage: #a8b5a2; --cream: #fefae0; --dark: #1b1b1b; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--cream); color: var(--dark); line-height: 1.6; }
+        
         /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
+        header { 
+            height: 80vh; 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center;
         }
 
-        .hero h1 { font-size: 4rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; margin-bottom: 30px; letter-spacing: 2px; }
+        h1 { font-size: 4rem; margin: 0; font-family: 'Playfair Display', serif; color: var(--cream); }
         .btn { 
-            padding: 15px 40px; 
-            background: var(--dusty-rose); 
-            color: white; 
-            text-decoration: none; 
-            border-radius: 30px; 
-            font-weight: 600;
-            transition: 0.3s;
+            padding: 15px 40px; background: var(--rose); color: white; text-decoration: none; 
+            border-radius: 5px; transition: 0.4s; font-weight: bold; margin-top: 25px; border: none; cursor: pointer;
         }
-        .btn:hover { background: #bc8a5f; transform: translateY(-3px); }
+        .btn:hover { background: var(--dark); letter-spacing: 2px; }
 
-        /* Features Section */
-        .features { padding: 80px 20px; text-align: center; background: var(--cream); }
-        .features-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 30px; max-width: 1200px; margin: 40px auto 0;
-        }
-        .feature-box i { font-size: 2.5rem; color: var(--sage-green); margin-bottom: 15px; }
-        .feature-box h3 { margin-bottom: 10px; color: var(--dusty-rose); }
-
-        /* Gallery */
-        .gallery { padding: 80px 20px; }
-        .gallery-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 15px; max-width: 1200px; margin: 0 auto;
-        }
-        .gallery img { width: 100%; height: 400px; object-fit: cover; border-radius: 10px; transition: 0.4s; }
-        .gallery img:hover { transform: scale(1.02); }
-
-        /* Contact & WhatsApp */
-        .contact { padding: 80px 20px; text-align: center; background: var(--dark-grey); color: white; }
-        .whatsapp-float {
-            background-color: #25d366;
-            color: white;
-            padding: 20px 40px;
-            border-radius: 50px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-top: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-        }
+        /* Products */
+        .section-title { padding: 50px 0 20px; font-size: 2.5rem; text-align: center; }
+        .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 40px; max-width: 1200px; margin: auto; }
+        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: 0.3s; text-align: center; padding-bottom: 20px; }
+        .card:hover { transform: translateY(-10px); }
+        .card img { width: 100%; height: 350px; object-fit: cover; }
+        
+        .price { color: var(--rose); font-size: 1.5rem; font-weight: bold; }
+        footer { background: var(--dark); color: white; padding: 40px; text-align: center; margin-top: 50px; }
     </style>
 </head>
 <body>
 
-    <section class="hero">
+    <header>
         <h1>Velvet Vases</h1>
-        <p>ARTISAN FLORAL DESIGN • NYC</p>
-        <a href="#contact" class="btn">DISCOVER THE BLOOMS</a>
-    </section>
+        <p>Handcrafted Elegance for Every Occasion</p>
+        <button class="btn" onclick="document.getElementById('shop').scrollIntoView({behavior: 'smooth'})">Explore Collection</button>
+    </header>
 
-    <section class="features">
-        <h2>Luxury In Every Petal</h2>
-        <div class="features-grid">
-            <div class="feature-box">
-                <i class="fas fa-seedling"></i>
-                <h3>Farm-Fresh</h3>
-                <p>Sourced daily from local growers to ensure maximum longevity.</p>
-            </div>
-            <div class="feature-box">
-                <i class="fas fa-truck"></i>
-                <h3>NYC Delivery</h3>
-                <p>Swift, hand-delivered elegance across all five boroughs.</p>
-            </div>
-            <div class="feature-box">
-                <i class="fas fa-magic"></i>
-                <h3>Bespoke Design</h3>
-                <p>Custom arrangements tailored to your unique celebrations.</p>
-            </div>
+    <h2 class="section-title" id="shop">Our Signature Bestsellers</h2>
+    
+    <div class="container">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=600&q=80" alt="White Roses">
+            <h3>Midnight Jasmine</h3>
+            <p class="price">$120.00</p>
+            <button class="btn" onclick="window.location.href='https://wa.me/123456789'">Order via WhatsApp</button>
         </div>
-    </section>
 
-    <section class="gallery">
-        <div class="gallery-grid">
-            <img src="https://images.unsplash.com/photo-1527061011665-3652c757a4d4?auto=format&fit=crop&w=600&q=80" alt="Rose Arrangement">
-            <img src="https://images.unsplash.com/photo-1563241527-3004b7be0fab?auto=format&fit=crop&w=600&q=80" alt="White Lilies">
-            <img src="https://images.unsplash.com/photo-1550983092-249511f01d30?auto=format&fit=crop&w=600&q=80" alt="Boutique Shop">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1527061011665-3652c757a4d4?auto=format&fit=crop&w=600&q=80" alt="Peonies">
+            <h3>Sunset Peonies</h3>
+            <p class="price">$95.00</p>
+            <button class="btn" onclick="window.location.href='https://wa.me/123456789'">Order via WhatsApp</button>
         </div>
-    </section>
+    </div>
 
-    <section id="contact" class="contact">
-        <h2>Experience Velvet Vases</h2>
-        <p>123 Madison Ave, New York, NY 10016</p>
-        <p>Email: hello@velvetvases.nyc</p>
-        
-        <a href="https://wa.me/12125550198" target="_blank" class="whatsapp-float">
-            <i class="fab fa-whatsapp"></i> Order via WhatsApp
-        </a>
-    </section>
+    <footer>
+        <p>Velvet Vases NYC - Luxury Floral Design</p>
+        <p>Created by Qweb-designs</p>
+    </footer>
 
 </body>
 </html>
