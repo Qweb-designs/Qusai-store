@@ -3,101 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Floral Shop | Inspired by Solim</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>VELVET & STEM | Luxury Floral Atelier</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --primary-pink: #f8edeb; --accent-red: #d90429; --dark-text: #2b2d42; --light-gray: #f8f9fa; }
-        body { font-family: 'Inter', sans-serif; margin: 0; background-color: white; color: var(--dark-text); overflow-x: hidden; }
-        
-        /* Top Announcement Bar */
-        .announcement { background: var(--accent-red); color: white; text-align: center; padding: 10px; font-size: 14px; font-weight: bold; }
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&family=Montserrat:wght@200;400;600&display=swap');
 
-        /* Navigation */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; border-bottom: 1px solid #eee; sticky; top: 0; background: white; z-index: 1000; }
-        .logo { font-size: 24px; font-weight: 800; color: var(--accent-red); text-transform: uppercase; letter-spacing: 2px; }
-        .nav-links { display: flex; gap: 20px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--dark-text); font-weight: 500; font-size: 15px; transition: 0.3s; }
-        .nav-links a:hover { color: var(--accent-red); }
+        :root { --gold: #c5a059; --dark: #0a0a0a; --gray: #1a1a1a; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--dark); color: var(--white); scroll-behavior: smooth; }
+        h1, h2, .logo { font-family: 'Cormorant Garamond', serif; }
+
+        /* Header & Nav */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 25px 5%; background: rgba(10,10,10,0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #333; }
+        .logo { font-size: 28px; color: var(--gold); font-weight: 600; letter-spacing: 3px; }
+        .nav-links a { color: var(--white); text-decoration: none; margin-left: 30px; font-size: 13px; letter-spacing: 1px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
 
         /* Hero Section */
-        .hero { height: 60vh; background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1516053335893-6625807963d7?auto=format&fit=crop&w=1500&q=80'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .hero { height: 95vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=2000&auto=format&fit=crop'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .hero h1 { font-size: 5rem; color: var(--gold); margin-bottom: 20px; text-transform: capitalize; }
+        .hero p { font-size: 1.2rem; letter-spacing: 4px; margin-bottom: 30px; font-weight: 200; }
+        
+        .btn-gold { padding: 18px 45px; background: transparent; border: 1px solid var(--gold); color: var(--gold); text-transform: uppercase; font-size: 12px; letter-spacing: 3px; cursor: pointer; transition: 0.5s; text-decoration: none; }
+        .btn-gold:hover { background: var(--gold); color: var(--dark); box-shadow: 0 0 20px rgba(197, 160, 89, 0.4); }
 
-        /* Categories Section */
-        .categories { display: flex; justify-content: center; gap: 15px; padding: 40px 5%; flex-wrap: wrap; background: var(--light-gray); }
-        .cat-box { padding: 15px 30px; background: white; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; transition: 0.3s; font-weight: bold; }
-        .cat-box:hover { border-color: var(--accent-red); color: var(--accent-red); }
+        /* Featured Grid */
+        .section { padding: 100px 5%; }
+        .section-title { text-align: center; font-size: 3rem; color: var(--gold); margin-bottom: 60px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        
+        .item-card { position: relative; overflow: hidden; border-radius: 2px; border: 1px solid #222; }
+        .item-card img { width: 100%; height: 450px; object-fit: cover; transition: 0.8s; opacity: 0.8; }
+        .item-card:hover img { transform: scale(1.1); opacity: 1; }
+        .item-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px; background: linear-gradient(transparent, var(--dark)); text-align: center; }
+        .item-overlay h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .price { color: var(--gold); font-weight: 600; margin-bottom: 15px; display: block; }
 
-        /* Product Grid */
-        .products { padding: 50px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .p-card { border: 1px solid #f0f0f0; border-radius: 10px; overflow: hidden; transition: 0.3s; background: white; }
-        .p-card:hover { box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .p-card img { width: 100%; height: 300px; object-fit: cover; }
-        .p-info { padding: 20px; text-align: center; }
-        .p-price { color: var(--accent-red); font-weight: bold; font-size: 1.2rem; }
-        .add-btn { width: 100%; padding: 12px; background: var(--dark-text); color: white; border: none; margin-top: 15px; cursor: pointer; font-weight: bold; transition: 0.3s; }
-        .add-btn:hover { background: var(--accent-red); }
+        /* Info Section */
+        .contact-info { background: var(--gray); display: flex; flex-wrap: wrap; justify-content: space-around; padding: 60px 5%; text-align: center; border-top: 1px solid var(--gold); }
+        .info-box i { font-size: 2rem; color: var(--gold); margin-bottom: 20px; }
+        .info-box h4 { margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        .info-box p { color: #888; font-size: 14px; }
 
-        footer { background: #111; color: white; padding: 50px 5%; text-align: center; }
+        footer { padding: 40px; text-align: center; background: #000; color: #555; border-top: 1px solid #111; }
     </style>
 </head>
 <body>
 
-    <div class="announcement">✨ FREE SAME-DAY DELIVERY ON ORDERS OVER $99 ✨</div>
-
     <nav>
-        <div class="logo">Velvet Vases</div>
-        <ul class="nav-links">
-            <li><a href="#">Anniversary</a></li>
-            <li><a href="#">Birthday</a></li>
-            <li><a href="#">Sympathy</a></li>
-            <li><a href="#">Get Well</a></li>
-        </ul>
-        <div class="icons"><i class="fas fa-shopping-cart"></i></div>
+        <div class="logo">VELVET & STEM</div>
+        <div class="nav-links">
+            <a href="#shop">COLLECTION</a>
+            <a href="#about">THE ATELIER</a>
+            <a href="#contact">CONTACT</a>
+        </div>
     </nav>
 
     <section class="hero">
-        <h1>Hand-Delivered Luxury</h1>
-        <p>Expertly crafted bouquets for your special moments.</p>
+        <p>ESTABLISHED 2026 • NEW YORK CITY</p>
+        <h1>Pure Elegance.</h1>
+        <a href="#shop" class="btn-gold">Discover Collection</a>
     </section>
 
-    <div class="categories">
-        <div class="cat-box">🌹 Roses</div>
-        <div class="cat-box">🌷 Tulips</div>
-        <div class="cat-box">🌿 Plants</div>
-        <div class="cat-box">🎁 Gift Baskets</div>
-    </div>
+    <section id="shop" class="section">
+        <h2 class="section-title">The Signature Collection</h2>
+        <div class="grid">
+            <div class="item-card">
+                <img src="https://images.unsplash.com/photo-1558997519-83ea9252dee8?q=80&w=800&auto=format&fit=crop" alt="Flower">
+                <div class="item-overlay">
+                    <h3>Midnight Orchid</h3>
+                    <span class="price">$145.00</span>
+                    <button class="btn-gold" style="padding: 10px 20px; font-size: 10px;">Pre-Order</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <img src="https://images.unsplash.com/photo-1596073413225-30fba6826012?q=80&w=800&auto=format&fit=crop" alt="Flower">
+                <div class="item-overlay">
+                    <h3>Golden Hour Rose</h3>
+                    <span class="price">$120.00</span>
+                    <button class="btn-gold" style="padding: 10px 20px; font-size: 10px;">Pre-Order</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <img src="https://images.unsplash.com/photo-1523694553227-ec1c463941b1?q=80&w=800&auto=format&fit=crop" alt="Flower">
+                <div class="item-overlay">
+                    <h3>White Marble Tulip</h3>
+                    <span class="price">$95.00</span>
+                    <button class="btn-gold" style="padding: 10px 20px; font-size: 10px;">Pre-Order</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section class="products">
-        <div class="p-card">
-            <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?auto=format&fit=crop&w=500&q=80" alt="Rose">
-            <div class="p-info">
-                <h3>The Romance Bouquet</h3>
-                <p class="p-price">$74.99</p>
-                <button class="add-btn">Add to Cart</button>
-            </div>
+    <section id="contact" class="contact-info">
+        <div class="info-box">
+            <i class="fas fa-map-marker-alt"></i>
+            <h4>Our Atelier</h4>
+            <p>725 5th Ave, New York,<br>NY 10022, United States</p>
         </div>
-        <div class="p-card">
-            <img src="https://images.unsplash.com/photo-1591886960571-74d43a9d4166?auto=format&fit=crop&w=500&q=80" alt="Mix">
-            <div class="p-info">
-                <h3>Spring Glow Mix</h3>
-                <p class="p-price">$89.99</p>
-                <button class="add-btn">Add to Cart</button>
-            </div>
+        <div class="info-box">
+            <i class="fas fa-phone-alt"></i>
+            <h4>Concierge</h4>
+            <p>+1 (212) 555-0198<br>Toll Free: 1-800-VELVET</p>
         </div>
-        <div class="p-card">
-            <img src="https://images.unsplash.com/photo-1525310238806-e13d3397989d?auto=format&fit=crop&w=500&q=80" alt="Lily">
-            <div class="p-info">
-                <h3>Heavenly Lilies</h3>
-                <p class="p-price">$65.00</p>
-                <button class="add-btn">Add to Cart</button>
-            </div>
+        <div class="info-box">
+            <i class="fas fa-clock"></i>
+            <h4>Working Hours</h4>
+            <p>Mon - Sat: 9 AM - 8 PM<br>Sun: Private Appointments</p>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 Velvet Vases NYC - Luxury Floral Delivery</p>
-        <p>Built with ❤️ by Qweb-designs</p>
+        <p>&copy; 2026 VELVET & STEM NEW YORK. ALL RIGHTS RESERVED.</p>
+        <p style="margin-top: 10px; font-size: 11px; letter-spacing: 2px;">DESIGNED BY QUSAI | QWEB-DESIGNS</p>
     </footer>
 
 </body>
