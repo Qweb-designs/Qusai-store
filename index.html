@@ -3,67 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velvet Vases | Premium Florist NYC</title>
+    <title>Premium Floral Shop | Inspired by Solim</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --rose: #d4a373; --sage: #a8b5a2; --cream: #fefae0; --dark: #1b1b1b; }
-        body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--cream); color: var(--dark); line-height: 1.6; }
+        :root { --primary-pink: #f8edeb; --accent-red: #d90429; --dark-text: #2b2d42; --light-gray: #f8f9fa; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background-color: white; color: var(--dark-text); overflow-x: hidden; }
         
+        /* Top Announcement Bar */
+        .announcement { background: var(--accent-red); color: white; text-align: center; padding: 10px; font-size: 14px; font-weight: bold; }
+
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; border-bottom: 1px solid #eee; sticky; top: 0; background: white; z-index: 1000; }
+        .logo { font-size: 24px; font-weight: 800; color: var(--accent-red); text-transform: uppercase; letter-spacing: 2px; }
+        .nav-links { display: flex; gap: 20px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--dark-text); font-weight: 500; font-size: 15px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent-red); }
+
         /* Hero Section */
-        header { 
-            height: 80vh; 
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1500&q=80');
-            background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center;
-        }
+        .hero { height: 60vh; background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1516053335893-6625807963d7?auto=format&fit=crop&w=1500&q=80'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
 
-        h1 { font-size: 4rem; margin: 0; font-family: 'Playfair Display', serif; color: var(--cream); }
-        .btn { 
-            padding: 15px 40px; background: var(--rose); color: white; text-decoration: none; 
-            border-radius: 5px; transition: 0.4s; font-weight: bold; margin-top: 25px; border: none; cursor: pointer;
-        }
-        .btn:hover { background: var(--dark); letter-spacing: 2px; }
+        /* Categories Section */
+        .categories { display: flex; justify-content: center; gap: 15px; padding: 40px 5%; flex-wrap: wrap; background: var(--light-gray); }
+        .cat-box { padding: 15px 30px; background: white; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; transition: 0.3s; font-weight: bold; }
+        .cat-box:hover { border-color: var(--accent-red); color: var(--accent-red); }
 
-        /* Products */
-        .section-title { padding: 50px 0 20px; font-size: 2.5rem; text-align: center; }
-        .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 40px; max-width: 1200px; margin: auto; }
-        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: 0.3s; text-align: center; padding-bottom: 20px; }
-        .card:hover { transform: translateY(-10px); }
-        .card img { width: 100%; height: 350px; object-fit: cover; }
-        
-        .price { color: var(--rose); font-size: 1.5rem; font-weight: bold; }
-        footer { background: var(--dark); color: white; padding: 40px; text-align: center; margin-top: 50px; }
+        /* Product Grid */
+        .products { padding: 50px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .p-card { border: 1px solid #f0f0f0; border-radius: 10px; overflow: hidden; transition: 0.3s; background: white; }
+        .p-card:hover { box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .p-card img { width: 100%; height: 300px; object-fit: cover; }
+        .p-info { padding: 20px; text-align: center; }
+        .p-price { color: var(--accent-red); font-weight: bold; font-size: 1.2rem; }
+        .add-btn { width: 100%; padding: 12px; background: var(--dark-text); color: white; border: none; margin-top: 15px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .add-btn:hover { background: var(--accent-red); }
+
+        footer { background: #111; color: white; padding: 50px 5%; text-align: center; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Velvet Vases</h1>
-        <p>Handcrafted Elegance for Every Occasion</p>
-        <button class="btn" onclick="document.getElementById('shop').scrollIntoView({behavior: 'smooth'})">Explore Collection</button>
-    </header>
+    <div class="announcement">✨ FREE SAME-DAY DELIVERY ON ORDERS OVER $99 ✨</div>
 
-    <h2 class="section-title" id="shop">Our Signature Bestsellers</h2>
-    
-    <div class="container">
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=600&q=80" alt="White Roses">
-            <h3>Midnight Jasmine</h3>
-            <p class="price">$120.00</p>
-            <button class="btn" onclick="window.location.href='https://wa.me/123456789'">Order via WhatsApp</button>
-        </div>
+    <nav>
+        <div class="logo">Velvet Vases</div>
+        <ul class="nav-links">
+            <li><a href="#">Anniversary</a></li>
+            <li><a href="#">Birthday</a></li>
+            <li><a href="#">Sympathy</a></li>
+            <li><a href="#">Get Well</a></li>
+        </ul>
+        <div class="icons"><i class="fas fa-shopping-cart"></i></div>
+    </nav>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1527061011665-3652c757a4d4?auto=format&fit=crop&w=600&q=80" alt="Peonies">
-            <h3>Sunset Peonies</h3>
-            <p class="price">$95.00</p>
-            <button class="btn" onclick="window.location.href='https://wa.me/123456789'">Order via WhatsApp</button>
-        </div>
+    <section class="hero">
+        <h1>Hand-Delivered Luxury</h1>
+        <p>Expertly crafted bouquets for your special moments.</p>
+    </section>
+
+    <div class="categories">
+        <div class="cat-box">🌹 Roses</div>
+        <div class="cat-box">🌷 Tulips</div>
+        <div class="cat-box">🌿 Plants</div>
+        <div class="cat-box">🎁 Gift Baskets</div>
     </div>
 
+    <section class="products">
+        <div class="p-card">
+            <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?auto=format&fit=crop&w=500&q=80" alt="Rose">
+            <div class="p-info">
+                <h3>The Romance Bouquet</h3>
+                <p class="p-price">$74.99</p>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+        </div>
+        <div class="p-card">
+            <img src="https://images.unsplash.com/photo-1591886960571-74d43a9d4166?auto=format&fit=crop&w=500&q=80" alt="Mix">
+            <div class="p-info">
+                <h3>Spring Glow Mix</h3>
+                <p class="p-price">$89.99</p>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+        </div>
+        <div class="p-card">
+            <img src="https://images.unsplash.com/photo-1525310238806-e13d3397989d?auto=format&fit=crop&w=500&q=80" alt="Lily">
+            <div class="p-info">
+                <h3>Heavenly Lilies</h3>
+                <p class="p-price">$65.00</p>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p>Velvet Vases NYC - Luxury Floral Design</p>
-        <p>Created by Qweb-designs</p>
+        <p>© 2026 Velvet Vases NYC - Luxury Floral Delivery</p>
+        <p>Built with ❤️ by Qweb-designs</p>
     </footer>
 
 </body>
